@@ -4,7 +4,7 @@ const path = require("path");
 const cors = require("cors");
 const PORT = 3600;
 const app = express();
-
+const corsOptions = require("./config/corsOptions");
 // urlcoded to  process your data so form data
 app.use(express.urlencoded({ extended: false }));
 
@@ -23,13 +23,25 @@ app.use("/employees", require("./routes/employees"));
 app.use(logger);
 
 //Cross Origin Resource Sharing
-app.use(cors());
+app.use(cors(corsOptions));
 
 // app.get("/", (req, res) => {
 //   // res.sendFile("./views/index.html", { root: __dirname });
 //   res.sendFile(path.join(__dirname, "views", "index.html"));
 // });
 
+// ?  all process
+
+app.all("*", (req, res) => {
+  res.status(404);
+  if (req.accepts("html")) {
+    res.send("404");
+  } else if (req.accepts("json")) {
+    res.json({ error: "404 Not Found" });
+  } else {
+    res.type("txt").send("404 Not Found");
+  }
+});
 app.listen(PORT, () => {
   console.log(`Server running on port  ${PORT}) `);
 });
