@@ -1,0 +1,29 @@
+{
+  "name": "react-form-validation-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node  index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/volkanarslan01/react-form-validation-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/volkanarslan01/react-form-validation-backend/issues"
+  },
+  "homepage": "https://github.com/volkanarslan01/react-form-validation-backend#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "date-fns": "^2.29.3",
+    "express": "^4.18.2",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
